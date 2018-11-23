@@ -1,0 +1,17 @@
+{
+  "name": "mokey-interpreter-js",
+  "version": "1.0.0",
+  "description": "Go言語で作るインタープリタのJS実装",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Terashima Shin <sterashima78@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.6.0",
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2"
+  }
+}
