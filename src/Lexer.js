@@ -18,7 +18,7 @@ export default class Lexer {
 
   nextToken(){
     this.skipWhitespace()
-    let token = new Token();
+    let token = new Token(TokenType.EOF, "");
     if(this.ch === "="){
       if(this.peekChar() == "="){
         const c = this.ch
@@ -108,11 +108,11 @@ export default class Lexer {
   }
 
   isLetter(v){
-    return 'a' <= v && v <= 'z' || 'A' <= v && v <= 'Z' || v == '_'
+    return v != undefined && v != null &&  ('a' <= v && v <= 'z' || 'A' <= v && v <= 'Z' || v == '_')
   }
 
   isDigit(v){
-    return '0' <= v && v <= '9'
+    return v != undefined && v != null && '0' <= v && v <= '9'
   }
 
   skipWhitespace(){

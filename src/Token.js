@@ -20,4 +20,8 @@ export default class Token {
     this.literal = literal
   }
 
+  toString() {
+    return `{Type: ${this.type.toString()}, literal: ${this.literal}}`
+  }
+
 }

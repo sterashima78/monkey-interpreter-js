@@ -4,7 +4,8 @@
   "description": "Go言語で作るインタープリタのJS実装",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "build:docs": "webpack-cli docs/src/index.js -o docs/dist/main.js --mode production"
   },
   "keywords": [],
   "author": "Terashima Shin <sterashima78@gmail.com>",
