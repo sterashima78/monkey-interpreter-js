@@ -43,6 +43,24 @@ export default class Lexer {
     else if(this.ch === ","){
       token = new Token(TokenType.COMMA, this.ch)
     }
+    else if(this.ch === "!"){
+      token = new Token(TokenType.BANG, this.ch)
+    }
+    else if(this.ch === "-"){
+      token = new Token(TokenType.MINUS, this.ch)
+    }
+    else if(this.ch === "/"){
+      token = new Token(TokenType.SLASH, this.ch)
+    }
+    else if(this.ch === "*"){
+      token = new Token(TokenType.ASTERISK, this.ch)
+    }
+    else if(this.ch === "<"){
+      token = new Token(TokenType.LT, this.ch)
+    }
+    else if(this.ch === ">"){
+      token = new Token(TokenType.GT, this.ch)
+    }
     else if(this.ch === null){
       token = new Token(TokenType.EOF, "")
     }

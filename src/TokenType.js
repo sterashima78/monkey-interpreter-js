@@ -6,7 +6,14 @@ export default {
   INT: Symbol("INT"), //数値
   
   ASSIGN: Symbol("="),
+  BANG: Symbol("!"),
+
   PLUS: Symbol("+"),
+  MINUS: Symbol("-"),
+  SLASH: Symbol("/"),
+  ASTERISK: Symbol("*"),
+  LT: Symbol("<"),
+  GT: Symbol(">"),
 
   COMMA: Symbol("COMMA"),
   SEMICOLON: Symbol("SEMICOLON"),

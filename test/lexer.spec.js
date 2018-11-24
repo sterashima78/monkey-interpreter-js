@@ -128,4 +128,29 @@ describe("Lexer", ()=>{
       expect(l.nextToken()).toEqual(ans)
     })
   })
+
+  it("演算子のトークン", ()=>{
+    const l = new Lexer(`
+    !-/*5;
+    5 < 10 > 5;
+    `)
+    const answers = [
+      new Token(Type.BANG, "!"),
+      new Token(Type.MINUS, "-"),
+      new Token(Type.SLASH, "/"),
+      new Token(Type.ASTERISK, "*"),
+      new Token(Type.INT, "5"),
+      new Token(Type.SEMICOLON, ";"),
+      new Token(Type.INT, "5"),
+      new Token(Type.LT, "<"),
+      new Token(Type.INT, "10"),
+      new Token(Type.GT, ">"),
+      new Token(Type.INT, "5"),
+      new Token(Type.SEMICOLON, ";"),
+      new Token(Type.EOF, ""),
+    ]
+    answers.forEach( ans => {
+      expect(l.nextToken()).toEqual(ans)
+    })
+  })
 })
