@@ -186,4 +186,24 @@ describe("Lexer", ()=>{
       expect(l.nextToken()).toEqual(ans)
     })
   })
+
+  it("複数のトークンからなるトークン", ()=>{
+    const l = new Lexer(`
+    1==1;
+    1!=1;
+    `)
+    const answers = [
+      new Token(Type.INT, "1"),
+      new Token(Type.EQ, "=="),
+      new Token(Type.INT, "1"),
+      new Token(Type.SEMICOLON, ";"),
+      new Token(Type.INT, "1"),
+      new Token(Type.NOT_EQ, "!="),
+      new Token(Type.INT, "1"),
+      new Token(Type.SEMICOLON, ";")
+    ]
+    answers.forEach( ans => {
+      expect(l.nextToken()).toEqual(ans)
+    })
+  })
 })

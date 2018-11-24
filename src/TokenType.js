@@ -7,6 +7,8 @@ export default {
   
   ASSIGN: Symbol("="),
   BANG: Symbol("!"),
+  EQ: Symbol("=="),
+  NOT_EQ: Symbol("!="),
 
   PLUS: Symbol("+"),
   MINUS: Symbol("-"),

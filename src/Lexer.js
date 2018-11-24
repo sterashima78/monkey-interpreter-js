@@ -20,7 +20,13 @@ export default class Lexer {
     this.skipWhitespace()
     let token = new Token();
     if(this.ch === "="){
-      token = new Token(TokenType.ASSIGN, this.ch)
+      if(this.peekChar() == "="){
+        const c = this.ch
+        this.readChar()
+        token = new Token(TokenType.EQ, c + this.ch )
+      }else{
+        token = new Token(TokenType.ASSIGN, this.ch)
+      }
     }
     else if(this.ch === "+"){
       token = new Token(TokenType.PLUS, this.ch)
@@ -44,7 +50,14 @@ export default class Lexer {
       token = new Token(TokenType.COMMA, this.ch)
     }
     else if(this.ch === "!"){
-      token = new Token(TokenType.BANG, this.ch)
+      if(this.peekChar() == "="){
+        const c = this.ch
+        this.readChar()
+        token = new Token(TokenType.NOT_EQ, c + this.ch )
+      }else{
+        token = new Token(TokenType.BANG, this.ch)
+      }
+      
     }
     else if(this.ch === "-"){
       token = new Token(TokenType.MINUS, this.ch)
@@ -104,5 +117,9 @@ export default class Lexer {
 
   skipWhitespace(){
     while(this.ch == " " || this.ch == "\t" || this.ch == "\r" || this.ch == "\n") this.readChar()
+  }
+
+  peekChar(){
+    return this.rPos >= this.input.length ? null : this.input[this.rPos]
   }
 }
