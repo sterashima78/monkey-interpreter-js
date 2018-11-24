@@ -153,4 +153,37 @@ describe("Lexer", ()=>{
       expect(l.nextToken()).toEqual(ans)
     })
   })
+
+  it("IF/ELSE", ()=>{
+    const l = new Lexer(`
+    if(5 < 10){
+      return true;
+    }else{
+      return false;
+    }
+    `)
+    const answers = [
+      new Token(Type.IF, "if"),
+      new Token(Type.LPAREN, "("),
+      new Token(Type.INT, "5"),
+      new Token(Type.LT, "<"),
+      new Token(Type.INT, "10"),
+      new Token(Type.RPAREN, ")"),
+      new Token(Type.LBRACE, "{"),
+      new Token(Type.RETURN, "return"),
+      new Token(Type.TRUE, "true"),
+      new Token(Type.SEMICOLON, ";"),
+      new Token(Type.RBRACE, "}"),
+      new Token(Type.ELSE, "else"),
+      new Token(Type.LBRACE, "{"),
+      new Token(Type.RETURN, "return"),
+      new Token(Type.FALSE, "false"),
+      new Token(Type.SEMICOLON, ";"),
+      new Token(Type.RBRACE, "}"),
+      new Token(Type.EOF, ""),
+    ]
+    answers.forEach( ans => {
+      expect(l.nextToken()).toEqual(ans)
+    })
+  })
 })

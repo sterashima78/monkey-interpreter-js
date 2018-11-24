@@ -25,5 +25,11 @@ export default {
   RBRACE: Symbol("}"),
 
   FUNCTION: Symbol("FUNCTION"),
-  LET: Symbol("LET")
+  LET: Symbol("LET"),
+  TRUE: Symbol("TRUE"),
+  FALSE: Symbol("FLASE"),
+  IF: Symbol("IF"),
+  ELSE: Symbol("ELSE"),
+  RETURN: Symbol("RETURN"),
+
 }
